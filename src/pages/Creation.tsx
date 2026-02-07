@@ -1,4 +1,4 @@
-import { Camera, X, User, AtSign, FileText, Save, Search, Bell, Settings, Contact } from "lucide-react";
+import { Camera, X, User, AtSign, Save, Search, Bell, Settings, Contact } from "lucide-react";
 
 function Creation() {
     return (

@@ -3,7 +3,7 @@ import Layout from "./pages/Layout";
 import React from "react";
 import Acceuil from "./pages/Acceuil";
 import NotFound from "./pages/NotFound";
-import Creation from "./pages/Creation";
+import Init from "./pages/Init";
 
 
 
@@ -21,8 +21,8 @@ export const appRouter = createBrowserRouter([
             },
 
             {
-                path : '/delete',
-                element : React.createElement(Creation),
+                path : '/init',
+                element : React.createElement(Init),
             },
 
             {
