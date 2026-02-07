@@ -1,23 +1,48 @@
 import { Plus } from "lucide-react"
-import Button from "../components/Button"
+import SideBar from "../layouts/SideBar"
+import AcceuilNavBar from "../layouts/AcceuilNavBar"
+import ContactList from "../layouts/ContactList"
 
 
-function Acceuil(){
-    return <>
-        <div>
-            <div>
-                <div>
-                    <h1> All Contact </h1>
-                    <p> Manage your 1,248 network connections </p>
+function Acceuil() {
+    return (
+        <div className="flex h-screen overflow-hidden bg-white dark:bg-[#101622] text-slate-900 dark:text-slate-100 font-sans">
+            {/* Side Navigation */}
+            <SideBar />
+
+            {/* Main Content */}
+            <main className="flex-1 flex flex-col h-full bg-[#f6f6f8] dark:bg-[#101622] overflow-y-auto">
+                <AcceuilNavBar />
+
+                <div className="p-8">
+                    {/* Page Title Area */}
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                        <div>
+                            <h2 className="text-3xl font-black tracking-tight mb-1 text-slate-900 dark:text-white">All Contacts</h2>
+                            <p className="text-slate-500 dark:text-slate-400 font-medium">Manage your 1,248 network connections</p>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <button className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-bold hover:bg-blue-700 shadow-lg shadow-blue-600/20 transition-all">
+                                <Plus size={20} />
+                                New Contact
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Tabs/Filters */}
+                    <div className="flex border-b border-slate-200 dark:border-slate-800 mb-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
+                        <button className="px-6 py-3 border-b-2 border-blue-600 text-blue-600 text-sm font-bold">All</button>
+                        <button className="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-sm font-semibold transition-colors">Recently Added</button>
+                        <button className="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-sm font-semibold transition-colors">Favorites</button>
+                        <button className="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-sm font-semibold transition-colors">Archived</button>
+                    </div>
+
+                    {/* Contacts Grid */}
+                    <ContactList />
                 </div>
-                <Button > <Plus size={20} className="" /> New Contact </Button>
-            </div>
-
-            <div>
-                
-            </div>
+            </main>
         </div>
-    </>
+    )
 }
 
 export default Acceuil
