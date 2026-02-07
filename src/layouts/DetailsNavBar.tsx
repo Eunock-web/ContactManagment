@@ -5,14 +5,14 @@ import { Link } from "react-router-dom"
 
 function DetailsNavBar(){
     return <>
-    <div className="">
-        <div>
-            <X />
-            <h1> Contact Details </h1>
-        </div>
+        <div className="">
+            <div className="" >
+                <X />
+                <h1> Contact Details </h1>
+            </div>
 
-        <Button className="" > <Pencil /> <Link to={""}> Edit </Link> </Button>
-    </div>
+            <Button className="" > <Pencil /> <Link to={""}> Edit </Link> </Button>
+        </div>
     </>
 }
 

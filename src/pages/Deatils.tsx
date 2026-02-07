@@ -1,9 +1,12 @@
 import { Mail, MapPin, Phone, Smartphone, Trash2 } from "lucide-react"
+import DetailsNavBar from "../layouts/DetailsNavBar"
 
 
 function Details(){
     return <>
         <div>
+            <DetailsNavBar />
+
             <div>
                 <img src="" alt="profil" />
                 <div>

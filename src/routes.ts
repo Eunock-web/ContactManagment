@@ -3,7 +3,7 @@ import Layout from "./pages/Layout";
 import React from "react";
 import Acceuil from "./pages/Acceuil";
 import NotFound from "./pages/NotFound";
-import DeletePop from "./layouts/DeletePop";
+import Creation from "./pages/Creation";
 
 
 
@@ -22,7 +22,7 @@ export const appRouter = createBrowserRouter([
 
             {
                 path : '/delete',
-                element : React.createElement(DeletePop),
+                element : React.createElement(Creation),
             },
 
             {

@@ -19,7 +19,7 @@ function DeletePop(){
                 <Button  className="text-white bg-red-700 py-2 px-2 border-red-600 rounded-xl"> Delete Permanently </Button>
             </div>
 
-            <X className="text-gray-400 absolute top-4 right-4 cursor-pointer hover:white " size={20} />
+            <X className="text-gray-400 absolute top-4 right-4 cursor-pointer hover:text-white " size={20} />
         </div>
     </>
 }
