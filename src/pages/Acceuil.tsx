@@ -2,6 +2,7 @@ import { Plus } from "lucide-react"
 import SideBar from "../layouts/SideBar"
 import AcceuilNavBar from "../layouts/AcceuilNavBar"
 import ContactList from "../layouts/ContactList"
+import { Link } from "react-router-dom"
 
 
 function Acceuil() {
@@ -22,9 +23,9 @@ function Acceuil() {
                             <p className="text-slate-500 dark:text-slate-400 font-medium">Manage your 1,248 network connections</p>
                         </div>
                         <div className="flex items-center gap-3">
-                            <button className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-bold hover:bg-blue-700 shadow-lg shadow-blue-600/20 transition-all">
+                            <button className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-bold hover:bg-blue-700 shadow-lg shadow-blue-600/20 transition-all hover:cursor-pointer ">
                                 <Plus size={20} />
-                                New Contact
+                                <Link to={"/create"}> New Contact </Link>
                             </button>
                         </div>
                     </div>
@@ -33,7 +34,6 @@ function Acceuil() {
                     <div className="flex border-b border-slate-200 dark:border-slate-800 mb-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
                         <button className="px-6 py-3 border-b-2 border-blue-600 text-blue-600 text-sm font-bold hover:cursor-pointer">All</button>
                         <button className="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-sm font-semibold transition-colors hover:cursor-pointer">Pays</button>
-                        {/* <button className="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-sm font-semibold transition-colors hover:cursor-pointer">Favorites</button> */}
                         <button className="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-sm font-semibold transition-colors">Job</button>
                     </div>
 

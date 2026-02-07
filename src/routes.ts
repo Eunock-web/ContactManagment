@@ -4,6 +4,7 @@ import React from "react";
 import Acceuil from "./pages/Acceuil";
 import NotFound from "./pages/NotFound";
 import Init from "./pages/Init";
+import Creation from "./pages/Creation";
 
 
 
@@ -24,6 +25,12 @@ export const appRouter = createBrowserRouter([
                 path : '/init',
                 element : React.createElement(Init),
             },
+
+            {
+                path : '/create',
+                element : React.createElement(Creation),
+            },
+
 
             {
                 path : "*",

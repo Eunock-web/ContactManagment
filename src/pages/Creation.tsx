@@ -1,4 +1,5 @@
 import { Camera, X, User, AtSign, Save, Search, Bell, Settings, Contact } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Creation() {
     return (
@@ -127,10 +128,10 @@ function Creation() {
                                         />
                                     </div>
                                     <div className="flex flex-col gap-1.5">
-                                        <label className="text-sm font-medium text-slate-300">Company</label>
+                                        <label className="text-sm font-medium text-slate-300">Pays</label>
                                         <input
                                             className="rounded-lg border border-slate-700 bg-slate-900 text-white placeholder:text-slate-600 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 py-2 px-3 text-sm outline-none"
-                                            placeholder="e.g. Acme Inc."
+                                            placeholder="e.g. Japon"
                                             type="text"
                                         />
                                     </div>
@@ -152,8 +153,8 @@ function Creation() {
                                             <input
                                                 className="w-full rounded-lg border  text-white  focus:ring-1 py-2 px-3 text-sm outline-none"
                                                 type="email"
-                                                defaultValue="jane.doe@invalid-email"
-                                            />
+                                                placeholder="erwinmith@gmail.com"
+                                                />
                                             {/* <p className="text-xs text-red-400 mt-1 flex items-center gap-1">
                                                 <span className="text-xs">⚠</span>
                                                 Please enter a valid email address
@@ -201,7 +202,7 @@ function Creation() {
                         {/* Modal Footer */}
                         <div className="px-8 py-6 border-t border-slate-800 flex justify-end gap-3 sticky bottom-0 bg-[#1e293b] z-10">
                             <button className="px-5 py-2.5 rounded-lg border border-slate-700 text-slate-300 font-semibold text-sm hover:bg-slate-800 transition-colors hover:cursor-pointer ">
-                                Cancel
+                                <Link to={"/"} > Cancel </Link>
                             </button>
                             <button className="px-6 py-2.5 rounded-lg bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20 flex items-center gap-2 hover:cursor-pointer ">
                                 <Save size={16} />

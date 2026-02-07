@@ -5,3 +5,14 @@ export interface ButtonInterface extends ButtonHTMLAttributes<HTMLButtonElement>
     className? : string,
     icon? : ReactNode
 }
+
+export interface ContactData{
+    firstname : string,
+    lastname : string,
+    jobTitle : string,
+    email : string,
+    phone : string,
+    address : string,
+    country : string,
+    avatarUrl : string
+}

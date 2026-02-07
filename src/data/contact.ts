@@ -6,7 +6,9 @@ export const contact = [
         jobTitle: "Mangaka",
         email: "light.yagami@gmail.com",
         phone: "0197377980",
-        address: "123 Street Name, City"
+        address: "123 Street Name, City",
+        country: "Japan",
+        avatarUrl: "https://i.pravatar.cc/150?img=12"
     },
     {
         id: 2,
@@ -15,7 +17,9 @@ export const contact = [
         jobTitle: "Product Designer",
         email: "emma.watson@gmail.com",
         phone: "0198765432",
-        address: "456 Oak Avenue, London"
+        address: "456 Oak Avenue, London",
+        country: "United Kingdom",
+        avatarUrl: "https://i.pravatar.cc/150?img=47"
     },
     {
         id: 3,
@@ -24,7 +28,9 @@ export const contact = [
         jobTitle: "Full Stack Developer",
         email: "marcus.johnson@gmail.com",
         phone: "0199887766",
-        address: "789 Tech Boulevard, San Francisco"
+        address: "789 Tech Boulevard, San Francisco",
+        country: "United States",
+        avatarUrl: "https://i.pravatar.cc/150?img=33"
     },
     {
         id: 4,
@@ -33,7 +39,9 @@ export const contact = [
         jobTitle: "Marketing Manager",
         email: "sofia.martinez@gmail.com",
         phone: "0196543210",
-        address: "321 Marketing Street, Madrid"
+        address: "321 Marketing Street, Madrid",
+        country: "Spain",
+        avatarUrl: "https://i.pravatar.cc/150?img=45"
     },
     {
         id: 5,
@@ -42,7 +50,9 @@ export const contact = [
         jobTitle: "DevOps Engineer",
         email: "james.chen@gmail.com",
         phone: "0195432109",
-        address: "654 Cloud Lane, Singapore"
+        address: "654 Cloud Lane, Singapore",
+        country: "Singapore",
+        avatarUrl: "https://i.pravatar.cc/150?img=59"
     },
     {
         id: 6,
@@ -51,7 +61,9 @@ export const contact = [
         jobTitle: "UX Researcher",
         email: "amelia.brown@gmail.com",
         phone: "0194321098",
-        address: "987 User Street, Toronto"
+        address: "987 User Street, Toronto",
+        country: "Canada",
+        avatarUrl: "https://i.pravatar.cc/150?img=48"
     },
     {
         id: 7,
@@ -60,7 +72,9 @@ export const contact = [
         jobTitle: "Data Scientist",
         email: "liam.nguyen@gmail.com",
         phone: "0193210987",
-        address: "147 Analytics Avenue, Hanoi"
+        address: "147 Analytics Avenue, Hanoi",
+        country: "Vietnam",
+        avatarUrl: "https://i.pravatar.cc/150?img=15"
     },
     {
         id: 8,
@@ -69,7 +83,9 @@ export const contact = [
         jobTitle: "Content Strategist",
         email: "isabella.garcia@gmail.com",
         phone: "0192109876",
-        address: "258 Content Road, Barcelona"
+        address: "258 Content Road, Barcelona",
+        country: "Spain",
+        avatarUrl: "https://i.pravatar.cc/150?img=44"
     },
     {
         id: 9,
@@ -78,7 +94,9 @@ export const contact = [
         jobTitle: "Backend Developer",
         email: "noah.patel@gmail.com",
         phone: "0191098765",
-        address: "369 Server Street, Mumbai"
+        address: "369 Server Street, Mumbai",
+        country: "India",
+        avatarUrl: "https://i.pravatar.cc/150?img=68"
     },
     {
         id: 10,
@@ -87,7 +105,9 @@ export const contact = [
         jobTitle: "Project Manager",
         email: "olivia.anderson@gmail.com",
         phone: "0190987654",
-        address: "741 Management Lane, Sydney"
+        address: "741 Management Lane, Sydney",
+        country: "Australia",
+        avatarUrl: "https://i.pravatar.cc/150?img=49"
     },
     {
         id: 11,
@@ -96,7 +116,9 @@ export const contact = [
         jobTitle: "Mobile Developer",
         email: "ethan.kim@gmail.com",
         phone: "0189876543",
-        address: "852 Mobile Street, Seoul"
+        address: "852 Mobile Street, Seoul",
+        country: "South Korea",
+        avatarUrl: "https://i.pravatar.cc/150?img=70"
     },
     {
         id: 12,
@@ -105,7 +127,9 @@ export const contact = [
         jobTitle: "Graphic Designer",
         email: "ava.wilson@gmail.com",
         phone: "0188765432",
-        address: "963 Creative Boulevard, New York"
+        address: "963 Creative Boulevard, New York",
+        country: "United States",
+        avatarUrl: "https://i.pravatar.cc/150?img=41"
     },
     {
         id: 13,
@@ -114,7 +138,9 @@ export const contact = [
         jobTitle: "System Administrator",
         email: "william.taylor@gmail.com",
         phone: "0187654321",
-        address: "159 System Road, Chicago"
+        address: "159 System Road, Chicago",
+        country: "United States",
+        avatarUrl: "https://i.pravatar.cc/150?img=52"
     },
     {
         id: 14,
@@ -123,7 +149,9 @@ export const contact = [
         jobTitle: "Sales Manager",
         email: "mia.rodriguez@gmail.com",
         phone: "0186543210",
-        address: "357 Commerce Street, Miami"
+        address: "357 Commerce Street, Miami",
+        country: "United States",
+        avatarUrl: "https://i.pravatar.cc/150?img=43"
     },
     {
         id: 15,
@@ -132,7 +160,9 @@ export const contact = [
         jobTitle: "Cloud Architect",
         email: "benjamin.lee@gmail.com",
         phone: "0185432109",
-        address: "468 Cloud Avenue, Seattle"
+        address: "468 Cloud Avenue, Seattle",
+        country: "United States",
+        avatarUrl: "https://i.pravatar.cc/150?img=57"
     },
     {
         id: 16,
@@ -141,7 +171,9 @@ export const contact = [
         jobTitle: "HR Manager",
         email: "charlotte.thomas@gmail.com",
         phone: "0184321098",
-        address: "579 People Street, Amsterdam"
+        address: "579 People Street, Amsterdam",
+        country: "Netherlands",
+        avatarUrl: "https://i.pravatar.cc/150?img=38"
     },
     {
         id: 17,
@@ -150,7 +182,9 @@ export const contact = [
         jobTitle: "Frontend Developer",
         email: "lucas.harris@gmail.com",
         phone: "0183210987",
-        address: "680 Interface Lane, Berlin"
+        address: "680 Interface Lane, Berlin",
+        country: "Germany",
+        avatarUrl: "https://i.pravatar.cc/150?img=69"
     },
     {
         id: 18,
@@ -159,7 +193,9 @@ export const contact = [
         jobTitle: "Brand Manager",
         email: "harper.clark@gmail.com",
         phone: "0182109876",
-        address: "791 Brand Boulevard, Paris"
+        address: "791 Brand Boulevard, Paris",
+        country: "France",
+        avatarUrl: "https://i.pravatar.cc/150?img=42"
     },
     {
         id: 19,
@@ -168,7 +204,9 @@ export const contact = [
         jobTitle: "Security Analyst",
         email: "alexander.lewis@gmail.com",
         phone: "0181098765",
-        address: "802 Secure Street, Tokyo"
+        address: "802 Secure Street, Tokyo",
+        country: "Japan",
+        avatarUrl: "https://i.pravatar.cc/150?img=60"
     },
     {
         id: 20,
@@ -177,7 +215,9 @@ export const contact = [
         jobTitle: "Business Analyst",
         email: "sophia.walker@gmail.com",
         phone: "0180987654",
-        address: "913 Analysis Avenue, Dublin"
+        address: "913 Analysis Avenue, Dublin",
+        country: "Ireland",
+        avatarUrl: "https://i.pravatar.cc/150?img=40"
     },
     {
         id: 21,
@@ -186,7 +226,9 @@ export const contact = [
         jobTitle: "AI Engineer",
         email: "daniel.hall@gmail.com",
         phone: "0179876543",
-        address: "124 Machine Learning Lane, Boston"
+        address: "124 Machine Learning Lane, Boston",
+        country: "United States",
+        avatarUrl: "https://i.pravatar.cc/150?img=56"
     },
     {
         id: 22,
@@ -195,7 +237,9 @@ export const contact = [
         jobTitle: "Social Media Manager",
         email: "ella.allen@gmail.com",
         phone: "0178765432",
-        address: "235 Social Street, Los Angeles"
+        address: "235 Social Street, Los Angeles",
+        country: "United States",
+        avatarUrl: "https://i.pravatar.cc/150?img=36"
     },
     {
         id: 23,
@@ -204,7 +248,9 @@ export const contact = [
         jobTitle: "QA Engineer",
         email: "matthew.young@gmail.com",
         phone: "0177654321",
-        address: "346 Testing Road, Austin"
+        address: "346 Testing Road, Austin",
+        country: "United States",
+        avatarUrl: "https://i.pravatar.cc/150?img=62"
     },
     {
         id: 24,
@@ -213,7 +259,9 @@ export const contact = [
         jobTitle: "SEO Specialist",
         email: "aria.king@gmail.com",
         phone: "0176543210",
-        address: "457 Search Avenue, Melbourne"
+        address: "457 Search Avenue, Melbourne",
+        country: "Australia",
+        avatarUrl: "https://i.pravatar.cc/150?img=31"
     },
     {
         id: 25,
@@ -222,7 +270,9 @@ export const contact = [
         jobTitle: "Database Administrator",
         email: "henry.wright@gmail.com",
         phone: "0175432109",
-        address: "568 Data Street, Stockholm"
+        address: "568 Data Street, Stockholm",
+        country: "Sweden",
+        avatarUrl: "https://i.pravatar.cc/150?img=51"
     },
     {
         id: 26,
@@ -231,7 +281,9 @@ export const contact = [
         jobTitle: "UI Designer",
         email: "luna.lopez@gmail.com",
         phone: "0174321098",
-        address: "679 Interface Boulevard, Mexico City"
+        address: "679 Interface Boulevard, Mexico City",
+        country: "Mexico",
+        avatarUrl: "https://i.pravatar.cc/150?img=46"
     },
     {
         id: 27,
@@ -240,7 +292,9 @@ export const contact = [
         jobTitle: "Blockchain Developer",
         email: "sebastian.hill@gmail.com",
         phone: "0173210987",
-        address: "780 Crypto Lane, Dubai"
+        address: "780 Crypto Lane, Dubai",
+        country: "United Arab Emirates",
+        avatarUrl: "https://i.pravatar.cc/150?img=67"
     },
     {
         id: 28,
@@ -249,7 +303,9 @@ export const contact = [
         jobTitle: "Customer Success Manager",
         email: "camila.scott@gmail.com",
         phone: "0172109876",
-        address: "891 Customer Road, Vancouver"
+        address: "891 Customer Road, Vancouver",
+        country: "Canada",
+        avatarUrl: "https://i.pravatar.cc/150?img=39"
     },
     {
         id: 29,
@@ -258,7 +314,9 @@ export const contact = [
         jobTitle: "Network Engineer",
         email: "jack.green@gmail.com",
         phone: "0171098765",
-        address: "902 Network Street, Brussels"
+        address: "902 Network Street, Brussels",
+        country: "Belgium",
+        avatarUrl: "https://i.pravatar.cc/150?img=53"
     },
     {
         id: 30,
@@ -267,6 +325,8 @@ export const contact = [
         jobTitle: "Video Editor",
         email: "zoe.adams@gmail.com",
         phone: "0170987654",
-        address: "113 Media Avenue, Copenhagen"
+        address: "113 Media Avenue, Copenhagen",
+        country: "Denmark",
+        avatarUrl: "https://i.pravatar.cc/150?img=32"
     }
 ]
