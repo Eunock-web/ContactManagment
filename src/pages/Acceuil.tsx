@@ -31,10 +31,10 @@ function Acceuil() {
 
                     {/* Tabs/Filters */}
                     <div className="flex border-b border-slate-200 dark:border-slate-800 mb-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
-                        <button className="px-6 py-3 border-b-2 border-blue-600 text-blue-600 text-sm font-bold">All</button>
-                        <button className="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-sm font-semibold transition-colors">Recently Added</button>
-                        <button className="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-sm font-semibold transition-colors">Favorites</button>
-                        <button className="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-sm font-semibold transition-colors">Archived</button>
+                        <button className="px-6 py-3 border-b-2 border-blue-600 text-blue-600 text-sm font-bold hover:cursor-pointer">All</button>
+                        <button className="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-sm font-semibold transition-colors hover:cursor-pointer">Pays</button>
+                        {/* <button className="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-sm font-semibold transition-colors hover:cursor-pointer">Favorites</button> */}
+                        <button className="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-sm font-semibold transition-colors">Job</button>
                     </div>
 
                     {/* Contacts Grid */}

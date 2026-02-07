@@ -1,4 +1,4 @@
-import { Contact, FolderGit2, History, LayoutGrid, Settings, Star, Users } from "lucide-react";
+import { Contact, History, Settings, Star, Users } from "lucide-react";
 
 function SideBar() {
     return (

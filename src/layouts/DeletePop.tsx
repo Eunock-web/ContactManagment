@@ -6,7 +6,7 @@ function DeletePop(){
 
     return <>
         <div>
-            <TriangleAlert size={20} />
+            <TriangleAlert size={20} className="" />
             
             <div>
                 <h1> Delete Contact? </h1>
