@@ -1,5 +1,6 @@
 import { Mail, Phone, Edit, Star } from "lucide-react";
 import { contact } from "../data/contact";
+import { Link } from "react-router-dom";
 
 function ContactList() {
     const contacts = contact;
@@ -17,10 +18,10 @@ function ContactList() {
                         </div>
                         <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                             <button className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md text-slate-400 hover:text-blue-600 transition-colors hover:cursor-pointer">
-                                <Edit size={18} />
+                                <Link to={`/edit/${contact.id}`} > <Edit size={18} /> </Link>
                             </button>
                             <button className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md text-slate-400 hover:text-yellow-500 transition-colors hover:cursor-pointer">
-                                <Star size={18} />
+                                <Link to={`/favorite/${contact.id}`} > <Star size={18} /> </Link>
                             </button>
                         </div>
                     </div>

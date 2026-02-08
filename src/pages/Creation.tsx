@@ -1,7 +1,21 @@
 import { Camera, X, User, AtSign, Save, Search, Bell, Settings, Contact } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import type { ContactData } from "../types";
 
 function Creation() {
+    const [data, setData] = useState<ContactData>({
+        firstname : "",
+        lastname : "",
+        jobTitle : "",
+        email : "",
+        phone : "",
+        address : "",
+        country : "",
+        avatarUrl : ""
+    });
+
+
     return (
         <div className="bg-[#0f172a] font-sans text-slate-100 min-h-screen">
             <div className="relative flex h-screen w-full flex-col overflow-hidden">
@@ -107,6 +121,8 @@ function Creation() {
                                             className="rounded-lg border border-slate-700 bg-slate-900 text-white placeholder:text-slate-600 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 py-2 px-3 text-sm outline-none"
                                             placeholder="e.g. Jane"
                                             type="text"
+                                            name="firstname"
+                                            required
                                         />
                                     </div>
                                     <div className="flex flex-col gap-1.5">
@@ -117,6 +133,8 @@ function Creation() {
                                             className="rounded-lg border border-slate-700 bg-slate-900 text-white placeholder:text-slate-600 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 py-2 px-3 text-sm outline-none"
                                             placeholder="e.g. Doe"
                                             type="text"
+                                            name="lastname"
+                                            required
                                         />
                                     </div>
                                     <div className="flex flex-col gap-1.5">
@@ -125,6 +143,8 @@ function Creation() {
                                             className="rounded-lg border border-slate-700 bg-slate-900 text-white placeholder:text-slate-600 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 py-2 px-3 text-sm outline-none"
                                             placeholder="e.g. Software Engineer"
                                             type="text"
+                                            name="job"
+                                            required
                                         />
                                     </div>
                                     <div className="flex flex-col gap-1.5">
@@ -133,6 +153,8 @@ function Creation() {
                                             className="rounded-lg border border-slate-700 bg-slate-900 text-white placeholder:text-slate-600 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 py-2 px-3 text-sm outline-none"
                                             placeholder="e.g. Japon"
                                             type="text"
+                                            name="pays"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -154,7 +176,9 @@ function Creation() {
                                                 className="w-full rounded-lg border  text-white  focus:ring-1 py-2 px-3 text-sm outline-none"
                                                 type="email"
                                                 placeholder="erwinmith@gmail.com"
-                                                />
+                                                name="email"
+                                                required
+                                            />
                                             {/* <p className="text-xs text-red-400 mt-1 flex items-center gap-1">
                                                 <span className="text-xs">⚠</span>
                                                 Please enter a valid email address
@@ -168,6 +192,8 @@ function Creation() {
                                                 className="rounded-lg border border-slate-700 bg-slate-900 text-white placeholder:text-slate-600 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 py-2 px-3 text-sm outline-none"
                                                 placeholder="+1 (555) 000-0000"
                                                 type="tel"
+                                                name="phone"
+                                                required
                                             />
                                         </div>
                                         <div className="flex flex-col gap-1.5">
@@ -176,6 +202,8 @@ function Creation() {
                                                 className="rounded-lg border border-slate-700 bg-slate-900 text-white placeholder:text-slate-600 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 py-2 px-3 text-sm outline-none"
                                                 placeholder="123 Street Name, City"
                                                 type="text"
+                                                name="address"
+                                                required
                                             />
                                         </div>
                                     </div>
