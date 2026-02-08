@@ -1,5 +1,6 @@
 import { getAllUser } from "./db";
 import type { UserInterface } from "../types";
+import { contacts } from "./contact";
 
 
 export const Login = (email: string, password: string) => {
@@ -38,3 +39,6 @@ export const Logout = () => {
     }
 }
 
+export const countries = [...new Set(contacts.map(c => c.country))].sort();
+
+export const Jobs = [...new Set(contacts.map(c => c.jobTitle))].sort();

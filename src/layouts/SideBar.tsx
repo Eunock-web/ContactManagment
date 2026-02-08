@@ -1,5 +1,7 @@
-import { Contact, History, LogOut, Star, Users } from "lucide-react";
+import { Contact, LogOut, Star, Users } from "lucide-react";
 import { useAuthContext } from "../context/AuthContext";
+import { Link } from "react-router-dom";
+import { countries, Jobs } from "../data/function";
 
 function SideBar() {
     const {logout} = useAuthContext();
@@ -24,35 +26,59 @@ function SideBar() {
             <nav className="flex-1 px-4 space-y-1 overflow-y-auto">
                 <div className="pb-4 pt-2">
                     <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Navigation</p>
-                    <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600/10 text-blue-600 font-semibold group">
-                        <Users size={20} />
-                        <span className="text-sm">All Contacts</span>
+                    <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600/10 text-blue-600 font-semibold group  ">
+                            <Users size={20} />
+                        <Link to={"/"}>
+                            <span className="text-sm">All Contacts</span>
+                        </Link>
                     </a>
                     <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group">
                         <Star size={20} />
                         <span className="text-sm font-medium">Favorites</span>
                     </a>
-                    <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group">
+                    {/* <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group">
                         <History size={20} />
                         <span className="text-sm font-medium">Recently Added</span>
-                    </a>
+                    </a> */}
                 </div>
 
-                {/* <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                    <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Groups</p>
-                    <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                        <FolderGit2 size={20} />
-                        <span className="text-sm font-medium">Business</span>
-                    </a>
-                    <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                        <Users size={20} />
-                        <span className="text-sm font-medium">Family</span>
-                    </a>
-                    <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                        <LayoutGrid size={20} />
-                        <span className="text-sm font-medium">Friends</span>
-                    </a>
-                </div> */}
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-2  ">
+                    <div className="flex flex-col gap-2">
+                        <p className="px-3 text-[15px] font-bold uppercase tracking-wider text-slate-400 mb-2">FILTERS</p>
+                        <p  className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors hover:cursor-pointer  ">
+                            <span className="text-lg font-medium">Pays</span>
+                        </p>
+                        <div className=" flex flex-col gap-3 hover:cursor-pointer  ">
+                            {
+                                countries.map((country, index) =>(
+                                    <div className="flex flex-row  gap-2 " >
+                                        <input type="checkbox" className="hover:cursor-pointer w-4" />
+                                        <p key={index} className="text-lg" > {country} </p>
+                                    </div>
+                                ))
+                            }
+
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <p  className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors hover:cursor-pointer  ">
+                            <span className="text-lg font-medium ">Jobs</span>
+                        </p>
+                        <div className=" flex flex-col gap-4 hover:cursor-pointer  ">
+                            {
+                                Jobs.map((job, index) =>(
+                                    <div className="flex flex-row  gap-3 " >
+                                        <input type="checkbox" className="hover:cursor-pointer w-4" />
+                                        <p key={index} className="text-lg" > {job} </p>
+                                    </div>
+                                ))
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
             </nav>
 
             <div className="p-4 border-t border-slate-100 dark:border-slate-800">

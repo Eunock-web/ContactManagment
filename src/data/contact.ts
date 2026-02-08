@@ -1,6 +1,7 @@
-export const contact = [
+export const contacts = [
     {
         id: 1,
+        userId : 1,
         firstname: "Light",
         lastname: "YAGAMI",
         jobTitle: "Mangaka",
@@ -12,6 +13,7 @@ export const contact = [
     },
     {
         id: 2,
+        userId : 1,
         firstname: "Emma",
         lastname: "WATSON",
         jobTitle: "Product Designer",
@@ -23,6 +25,7 @@ export const contact = [
     },
     {
         id: 3,
+        userId : 1,
         firstname: "Marcus",
         lastname: "JOHNSON",
         jobTitle: "Full Stack Developer",
@@ -34,6 +37,7 @@ export const contact = [
     },
     {
         id: 4,
+        userId : 1,
         firstname: "Sofia",
         lastname: "MARTINEZ",
         jobTitle: "Marketing Manager",
@@ -45,6 +49,7 @@ export const contact = [
     },
     {
         id: 5,
+        userId : 1,
         firstname: "James",
         lastname: "CHEN",
         jobTitle: "DevOps Engineer",
@@ -56,6 +61,7 @@ export const contact = [
     },
     {
         id: 6,
+        userId : 1,
         firstname: "Amelia",
         lastname: "BROWN",
         jobTitle: "UX Researcher",
@@ -67,6 +73,7 @@ export const contact = [
     },
     {
         id: 7,
+        userId : 1,
         firstname: "Liam",
         lastname: "NGUYEN",
         jobTitle: "Data Scientist",
@@ -78,6 +85,7 @@ export const contact = [
     },
     {
         id: 8,
+        userId : 2,
         firstname: "Isabella",
         lastname: "GARCIA",
         jobTitle: "Content Strategist",
@@ -89,6 +97,7 @@ export const contact = [
     },
     {
         id: 9,
+        userId : 2,
         firstname: "Noah",
         lastname: "PATEL",
         jobTitle: "Backend Developer",
@@ -100,6 +109,7 @@ export const contact = [
     },
     {
         id: 10,
+        userId : 2,
         firstname: "Olivia",
         lastname: "ANDERSON",
         jobTitle: "Project Manager",
@@ -111,6 +121,7 @@ export const contact = [
     },
     {
         id: 11,
+        userId : 2,
         firstname: "Ethan",
         lastname: "KIM",
         jobTitle: "Mobile Developer",
@@ -122,6 +133,7 @@ export const contact = [
     },
     {
         id: 12,
+        userId : 2,
         firstname: "Ava",
         lastname: "WILSON",
         jobTitle: "Graphic Designer",
@@ -133,6 +145,7 @@ export const contact = [
     },
     {
         id: 13,
+        userId : 2,
         firstname: "William",
         lastname: "TAYLOR",
         jobTitle: "System Administrator",
@@ -144,6 +157,7 @@ export const contact = [
     },
     {
         id: 14,
+        userId : 2,
         firstname: "Mia",
         lastname: "RODRIGUEZ",
         jobTitle: "Sales Manager",
@@ -155,6 +169,7 @@ export const contact = [
     },
     {
         id: 15,
+        userId : 2,
         firstname: "Benjamin",
         lastname: "LEE",
         jobTitle: "Cloud Architect",
@@ -166,6 +181,7 @@ export const contact = [
     },
     {
         id: 16,
+        userId : 2,
         firstname: "Charlotte",
         lastname: "THOMAS",
         jobTitle: "HR Manager",
@@ -177,6 +193,7 @@ export const contact = [
     },
     {
         id: 17,
+        userId : 2,
         firstname: "Lucas",
         lastname: "HARRIS",
         jobTitle: "Frontend Developer",
@@ -188,6 +205,7 @@ export const contact = [
     },
     {
         id: 18,
+        userId : 2,
         firstname: "Harper",
         lastname: "CLARK",
         jobTitle: "Brand Manager",
@@ -199,6 +217,7 @@ export const contact = [
     },
     {
         id: 19,
+        userId : 2,
         firstname: "Alexander",
         lastname: "LEWIS",
         jobTitle: "Security Analyst",
@@ -210,6 +229,7 @@ export const contact = [
     },
     {
         id: 20,
+        userId : 2,
         firstname: "Sophia",
         lastname: "WALKER",
         jobTitle: "Business Analyst",
@@ -221,6 +241,7 @@ export const contact = [
     },
     {
         id: 21,
+        userId : 1,
         firstname: "Daniel",
         lastname: "HALL",
         jobTitle: "AI Engineer",
@@ -232,6 +253,7 @@ export const contact = [
     },
     {
         id: 22,
+        userId : 1,
         firstname: "Ella",
         lastname: "ALLEN",
         jobTitle: "Social Media Manager",
@@ -243,6 +265,7 @@ export const contact = [
     },
     {
         id: 23,
+        userId : 1,
         firstname: "Matthew",
         lastname: "YOUNG",
         jobTitle: "QA Engineer",
@@ -254,6 +277,7 @@ export const contact = [
     },
     {
         id: 24,
+        userId : 2,
         firstname: "Aria",
         lastname: "KING",
         jobTitle: "SEO Specialist",
@@ -265,6 +289,7 @@ export const contact = [
     },
     {
         id: 25,
+        userId : 2,
         firstname: "Henry",
         lastname: "WRIGHT",
         jobTitle: "Database Administrator",
@@ -276,6 +301,7 @@ export const contact = [
     },
     {
         id: 26,
+        userId : 2,
         firstname: "Luna",
         lastname: "LOPEZ",
         jobTitle: "UI Designer",
@@ -287,6 +313,7 @@ export const contact = [
     },
     {
         id: 27,
+        userId : 2,
         firstname: "Sebastian",
         lastname: "HILL",
         jobTitle: "Blockchain Developer",
@@ -298,6 +325,7 @@ export const contact = [
     },
     {
         id: 28,
+        userId : 2,
         firstname: "Camila",
         lastname: "SCOTT",
         jobTitle: "Customer Success Manager",
@@ -309,6 +337,7 @@ export const contact = [
     },
     {
         id: 29,
+        userId : 2,
         firstname: "Jack",
         lastname: "GREEN",
         jobTitle: "Network Engineer",
@@ -320,6 +349,7 @@ export const contact = [
     },
     {
         id: 30,
+        userId : 1,
         firstname: "Zoe",
         lastname: "ADAMS",
         jobTitle: "Video Editor",

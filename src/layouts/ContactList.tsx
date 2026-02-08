@@ -1,12 +1,17 @@
 import { Mail, Phone, Edit, Star } from "lucide-react";
-import { contact } from "../data/contact";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
+import { ContactByUser } from "../data/db";
 
 function ContactList() {
-    const contacts = contact;
+    const { user } = useAuthContext();
+    const userId = user?.id;
+    const contactss = ContactByUser(userId);
+
+
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {contacts.map((contact, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 hover:cursor-pointer">
+            {contactss.map((contact, index) => (
                 <div key={index} className="bg-white dark:bg-[#1a2234] p-5 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 hover:shadow-md hover:border-blue-600/30 transition-all group">
                     <div className="flex justify-between items-start mb-4">
                         <div className={`w-14 h-14 rounded-full overflow-hidden flex items-center justify-center font-bold text-lg `}>
@@ -25,16 +30,16 @@ function ContactList() {
                             </button>
                         </div>
                     </div>
-                    <h3 className="font-bold text-slate-900 dark:text-white mb-1">{contact.firstname}</h3>
-                    <p className="text-xs font-medium text-slate-500 mb-4">{contact.jobTitle}</p>
+                    <h3 className="font-bold text-2xl text-slate-900 dark:text-white mb-1">{contact.firstname}</h3>
+                    <p className="text-sm text-[15px] font-medium text-slate-500 mb-4">{contact.jobTitle}</p>
                     <div className="space-y-2 mb-4">
                         <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
                             <Phone size={16} />
-                            <span className="text-[13px]">{contact.phone}</span>
+                            <span className="text-[15px]">{contact.phone}</span>
                         </div>
                         <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
                             <Mail size={16} />
-                            <span className="text-[13px] truncate">{contact.email}</span>
+                            <span className="text-[15px] truncate">{contact.email}</span>
                         </div>
                     </div>
                     {/* <div className="flex flex-wrap gap-2">

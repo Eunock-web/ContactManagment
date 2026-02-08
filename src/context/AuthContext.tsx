@@ -5,8 +5,14 @@ import { Login, Logout } from "../data/function";
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-    const [user, setUser] = useState<UserInterface | null>(null);
-    const [email, setEmail] = useState<string | null>(null);
+    const [user, setUser] = useState<UserInterface | null>(() => {
+        const savedUser = localStorage.getItem('user_session');
+        return savedUser ? JSON.parse(savedUser) : null;
+    });
+    const [email, setEmail] = useState<string | null>(() => {
+        const savedUser = localStorage.getItem('user_session');
+        return savedUser ? JSON.parse(savedUser).email : null;
+    });
     const [errors, setErrors] = useState<string | null>(null);
 
     const login = useCallback((email: string, password: string) => {
