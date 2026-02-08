@@ -1,11 +1,11 @@
 import { createContext, useCallback, useContext, useState, type ReactNode } from "react";
-import { type AuthContextType, type LoginInterface } from "../types";
+import { type AuthContextType, type UserInterface } from "../types";
 import { Login, Logout } from "../data/function";
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-    const [user, setUser] = useState<LoginInterface | null>(null);
+    const [user, setUser] = useState<UserInterface | null>(null);
     const [email, setEmail] = useState<string | null>(null);
     const [errors, setErrors] = useState<string | null>(null);
 

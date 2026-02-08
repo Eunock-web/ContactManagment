@@ -6,6 +6,7 @@ import NotFound from "./pages/NotFound";
 import Init from "./pages/Init";
 import Creation from "./pages/Creation";
 import Login from "./pages/Login";
+import { Middleware } from "./context/Middleware";
 
 
 
@@ -19,7 +20,7 @@ export const appRouter = createBrowserRouter([
             {
                 path : '/',
                 index : true,
-                element : React.createElement(Acceuil),
+                element : React.createElement(Middleware, null, React.createElement(Acceuil)),
             },
 
             {

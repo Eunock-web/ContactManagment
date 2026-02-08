@@ -1,6 +1,9 @@
 import { Search } from "lucide-react";
+import { useAuthContext } from "../context/AuthContext";
 
 function AcceuilNavBar() {
+    const {user} = useAuthContext();
+
     return (
         <header className="sticky top-0 z-10 flex items-center justify-between px-8 py-4 bg-white/80 dark:bg-[#101622]/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
             <div className="flex-1 max-w-xl">
@@ -16,7 +19,7 @@ function AcceuilNavBar() {
             <div className="flex items-center gap-6 ml-8">
                 <div className="flex items-center gap-3">
                     <div className="text-right hidden sm:block">
-                        <p className="text-sm font-bold text-slate-900 dark:text-white">Jonathan Doe</p>
+                        <p className="text-sm font-bold text-slate-900 dark:text-white">{user?.name}</p>
                         <p className="text-[11px] text-slate-500 font-medium">Admin Account</p>
                     </div>
                     <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden ring-2 ring-white dark:ring-slate-800">

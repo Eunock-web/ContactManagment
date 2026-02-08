@@ -29,7 +29,7 @@ export interface LoginInterface{
 }
 
 export interface AuthContextType{
-        user : LoginInterface | null; 
+        user : UserInterface | null; 
         email : string | null;
         errors : string | null;
         login : (email:string, password:string)=>void;

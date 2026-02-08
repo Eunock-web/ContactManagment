@@ -1,6 +1,14 @@
-import { Contact, History, Settings, Star, Users } from "lucide-react";
+import { Contact, History, LogOut, Star, Users } from "lucide-react";
+import { useAuthContext } from "../context/AuthContext";
 
 function SideBar() {
+    const {logout} = useAuthContext();
+
+    const handleClick = ()=>{
+
+        logout();
+    }
+
     return (
         <aside className="w-64 flex flex-col bg-white dark:bg-[#1a2234] border-r border-slate-200 dark:border-slate-800 h-screen">
             <div className="p-6 flex items-center gap-3">
@@ -48,9 +56,9 @@ function SideBar() {
             </nav>
 
             <div className="p-4 border-t border-slate-100 dark:border-slate-800">
-                <button className="w-full flex items-center justify-center gap-2 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
-                    <Settings size={20} />
-                    Settings
+                <button className="w-full flex items-center justify-center gap-2 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors hover:cursor-pointer" onClick={handleClick} > 
+                    <LogOut size={20} className="text-red-500" />
+                    <span className="text-red-500"> Deconnexion </span>
                 </button>
             </div>
         </aside>
