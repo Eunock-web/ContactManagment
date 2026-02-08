@@ -1,9 +1,14 @@
 import { Camera, X, User, AtSign, Save, Search, Bell, Settings, Contact, FileText } from "lucide-react";
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import type { ContactData } from "../types";
+import { CreateContact } from "../data/function";
+import { useAuthContext } from "../context/AuthContext";
 
 function Creation() {
+    const {user} = useAuthContext();
+    const navigate = useNavigate();
+
     const [data, setData] = useState<ContactData>({
         firstname : "",
         lastname : "",
@@ -28,8 +33,12 @@ function Creation() {
 
     const handleSubmit = (e: FormEvent) =>{
         e.preventDefault();
+        const res =  CreateContact(user?.id, data);
 
-        console.log(data);
+        if(res){
+            navigate('/');
+        }
+
     }
 
     return (
