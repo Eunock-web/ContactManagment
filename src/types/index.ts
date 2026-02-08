@@ -17,16 +17,21 @@ export interface ContactData{
     avatarUrl : string
 }
 
-export interface LoginInterface{
+export interface UserInterface{
     name : string,
+    email : string,
+    password : string
+}
+
+export interface LoginInterface{
     email : string,
     password : string
 }
 
 export interface AuthContextType{
         user : LoginInterface | null; 
-        loading : boolean;
         email : string | null;
-        saveUSer : (user: LoginInterface) => void;
+        login : (email:string, password:string)=>void;
+        // saveUSer : (user: LoginInterface) => void;
         logout : () => void;
 }
