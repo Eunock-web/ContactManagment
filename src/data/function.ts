@@ -37,3 +37,4 @@ export const Logout = () => {
         "response": "Deconnecter avec success"
     }
 }
+
