@@ -1,44 +1,62 @@
-import { Camera, X, User, AtSign, Save, Search, Bell, Settings, Contact, FileText } from "lucide-react";
-import { useState, type ChangeEvent, type FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { X, User, AtSign, Save, Search, Bell, Settings, Contact, FileText } from "lucide-react";
+import { useState, useEffect, type ChangeEvent, type FormEvent } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import type { ContactData } from "../types";
-import { CreateContact } from "../data/function";
+import { CreateContact, UpdateContact } from "../data/function";
 import { useAuthContext } from "../context/AuthContext";
+import { ContactByUserAndContact } from "../data/db";
 
 function Creation() {
-    const {user} = useAuthContext();
+    const { user } = useAuthContext();
     const navigate = useNavigate();
+    const { id } = useParams();
+    const isEdit = Boolean(id);
 
     const [data, setData] = useState<ContactData>({
-        firstname : "",
-        lastname : "",
-        jobTitle : "",
-        email : "",
-        phone : "",
-        address : "",
-        country : "",
-        avatarUrl : ""
+        firstname: "",
+        lastname: "",
+        jobTitle: "",
+        email: "",
+        phone: "",
+        address: "",
+        country: "",
+        avatarUrl: ""
     });
 
-    const handleChange =  (e:ChangeEvent<HTMLInputElement>) =>{
-        const {name, value} = e.currentTarget;
+    useEffect(() => {
+        if (isEdit && user?.id) {
+            const contact = ContactByUserAndContact(user.id, id);
+            if (contact && contact.length > 0) {
+                const { id: _, userId: __, ...contactData } = contact[0];
+                setData(contactData as ContactData);
+            }
+        }
+    }, [isEdit, id, user?.id]);
 
-        setData((prevData) => 
-            ({
-                ...prevData, 
-                [name] : value
-            })
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.currentTarget;
+
+        setData((prevData) =>
+        ({
+            ...prevData,
+            [name]: value
+        })
         );
     }
 
-    const handleSubmit = (e: FormEvent) =>{
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        const res =  CreateContact(user?.id, data);
 
-        if(res){
-            navigate('/');
+        let res;
+        if (isEdit) {
+            res = UpdateContact(id, data);
+        } else {
+            res = CreateContact(user?.id, data);
         }
 
+        if (res) {
+            navigate('/');
+        }
     }
 
     return (
@@ -61,7 +79,7 @@ function Creation() {
                                 <input
                                     className="form-input flex w-full min-w-0 flex-1 border-none bg-slate-800 text-white focus:ring-0 h-full placeholder:text-slate-500 px-4 text-base outline-none"
                                     placeholder="Search contacts..."
-                                    
+
                                 />
                             </div>
                         </label>
@@ -110,29 +128,17 @@ function Creation() {
                         {/* Modal Header */}
                         <div className="px-8 py-6 border-b border-slate-800 flex justify-between items-center sticky top-0 bg-[#1e293b] z-10">
                             <div>
-                                <h2 className="text-2xl font-bold text-white">Add New Contact</h2>
-                                <p className="text-slate-400 text-sm mt-1">Create a new entry in your contact database.</p>
+                                <h2 className="text-2xl font-bold text-white">{isEdit ? "Edit Contact" : "Add New Contact"}</h2>
+                                <p className="text-slate-400 text-sm mt-1">{isEdit ? "Update your contact information." : "Create a new entry in your contact database."}</p>
                             </div>
-                            <button className="p-2 hover:bg-slate-800 rounded-full transition-colors hover:cursor-pointer ">
+                            <Link to="/" className="p-2 hover:bg-slate-800 rounded-full transition-colors hover:cursor-pointer ">
                                 <X className="text-slate-400" size={20} />
-                            </button>
+                            </Link>
                         </div>
 
                         <form className="" onSubmit={handleSubmit}  >
                             {/* Modal Content */}
                             <div className="p-8 space-y-8">
-                                {/* Photo Upload */}
-                                {/* <div className="flex flex-col items-center justify-center">
-                                    <div className="group relative size-32 rounded-full border-2 border-dashed border-slate-600 bg-slate-800/50 flex flex-col items-center justify-center cursor-pointer hover:border-blue-600/50 hover:bg-slate-800 transition-all overflow-hidden">
-                                        <div className="text-slate-400 group-hover:text-blue-600 transition-colors flex flex-col items-center">
-                                            <Camera size={32} className="mb-1" />
-                                            <span className="text-[10px] uppercase font-bold tracking-wider">Upload</span>
-                                        </div>
-                                        <input className="absolute inset-0 opacity-0 cursor-pointer" type="file" />
-                                    </div>
-                                    <p className="text-xs text-slate-500 mt-3">JPG, PNG or GIF. Max size 2MB.</p>
-                                </div> */}
-
                                 {/* Identity Section */}
                                 <section className="space-y-4">
                                     <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
@@ -150,6 +156,7 @@ function Creation() {
                                                 type="text"
                                                 name="firstname"
                                                 required
+                                                value={data.firstname}
                                                 onChange={handleChange}
                                             />
                                         </div>
@@ -163,6 +170,7 @@ function Creation() {
                                                 type="text"
                                                 name="lastname"
                                                 required
+                                                value={data.lastname}
                                                 onChange={handleChange}
                                             />
                                         </div>
@@ -174,6 +182,7 @@ function Creation() {
                                                 type="text"
                                                 name="jobTitle"
                                                 required
+                                                value={data.jobTitle}
                                                 onChange={handleChange}
                                             />
                                         </div>
@@ -185,6 +194,7 @@ function Creation() {
                                                 type="text"
                                                 name="country"
                                                 required
+                                                value={data.country}
                                                 onChange={handleChange}
                                             />
                                         </div>
@@ -204,17 +214,14 @@ function Creation() {
                                             </label>
                                             <div className="relative">
                                                 <input
-                                                    className="w-full rounded-lg border  text-white  focus:ring-1 py-2 px-3 text-sm outline-none"
+                                                    className="w-full rounded-lg border border-slate-700 bg-slate-900 text-white placeholder:text-slate-600 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 py-2 px-3 text-sm outline-none"
                                                     type="email"
                                                     placeholder="erwinmith@gmail.com"
                                                     name="email"
                                                     required
+                                                    value={data.email}
                                                     onChange={handleChange}
                                                 />
-                                                {/* <p className="text-xs text-red-400 mt-1 flex items-center gap-1">
-                                                    <span className="text-xs">⚠</span>
-                                                    Please enter a valid email address
-                                                </p> */}
                                             </div>
                                         </div>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -226,6 +233,7 @@ function Creation() {
                                                     type="tel"
                                                     name="phone"
                                                     required
+                                                    value={data.phone}
                                                     onChange={handleChange}
                                                 />
                                             </div>
@@ -237,6 +245,7 @@ function Creation() {
                                                     type="text"
                                                     name="address"
                                                     required
+                                                    value={data.address}
                                                     onChange={handleChange}
                                                 />
                                             </div>
@@ -258,6 +267,7 @@ function Creation() {
                                             type="text"
                                             name="avatarUrl"
                                             required
+                                            value={data.avatarUrl}
                                             onChange={handleChange}
                                         />
                                     </div>
@@ -266,12 +276,12 @@ function Creation() {
 
                             {/* Modal Footer */}
                             <div className="px-8 py-6 border-t border-slate-800 flex justify-end gap-3 sticky bottom-0 bg-[#1e293b] z-10">
-                                <button className="px-5 py-2.5 rounded-lg border border-slate-700 text-slate-300 font-semibold text-sm hover:bg-slate-800 transition-colors hover:cursor-pointer ">
-                                    <Link to={"/"} > Cancel </Link>
-                                </button>
+                                <Link to="/" className="px-5 py-2.5 rounded-lg border border-slate-700 text-slate-300 font-semibold text-sm hover:bg-slate-800 transition-colors hover:cursor-pointer flex items-center justify-center">
+                                    Cancel
+                                </Link>
                                 <button className="px-6 py-2.5 rounded-lg bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20 flex items-center gap-2 hover:cursor-pointer " type="submit">
                                     <Save size={16} />
-                                    Save Contact
+                                    {isEdit ? "Update Contact" : "Save Contact"}
                                 </button>
                             </div>
                         </form>

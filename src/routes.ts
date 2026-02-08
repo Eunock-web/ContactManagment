@@ -41,12 +41,7 @@ export const appRouter = createBrowserRouter([
 
             {
                 path: '/edit/:id',
-                element: React.createElement(Middleware, null, React.createElement(Init)),
-            },
-
-            {
-                path: '/favorite/:id',
-                element: React.createElement(Middleware, null, React.createElement(Init)),
+                element: React.createElement(Middleware, null, React.createElement(Creation)),
             },
 
             {

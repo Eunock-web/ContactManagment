@@ -1,7 +1,7 @@
 import { Mail, Phone, Edit, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
-import { ContactByUser } from "../data/db";
+import { ContactByUser, ContactByUserAndContact } from "../data/db";
 import { IsContactFavoris, ToggleFavoris } from "../data/function";
 import { useState } from "react";
 
@@ -16,6 +16,12 @@ function ContactList() {
         setTick(prev => prev + 1); // Force re-render
     };
 
+
+    const handleUpdateContact = (contactId:number)  => {
+        const res = ContactByUserAndContact(user?.id, contactId);
+        
+    }
+    
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 hover:cursor-pointer">

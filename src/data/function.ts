@@ -96,6 +96,30 @@ export const ToggleFavoris = (userId: number | string | undefined, contactId: nu
     localStorage.setItem("favoris_contact", JSON.stringify(favoris));
 }
 
+
+//Fonction pour mettre à jour un contact
+export const UpdateContact = (contactId: number | string | undefined, updatedData: Partial<Contact>) => {
+    const contact_db = localStorage.getItem('contacts_db');
+    if (!contact_db) return null;
+
+    try {
+        let contacts: Contact[] = JSON.parse(contact_db);
+        const index = contacts.findIndex(c => String(c.id) === String(contactId));
+
+        if (index === -1) {
+            console.warn(`Contact with id ${contactId} not found`);
+            return null;
+        }
+
+        contacts[index] = { ...contacts[index], ...updatedData };
+        localStorage.setItem('contacts_db', JSON.stringify(contacts));
+        return contacts[index];
+    } catch (e) {
+        console.error("Error parsing or updating contacts_db", e);
+        return null;
+    }
+}
+
 // Get all favorite contacts for a user
 export const GetFavorisByUser = (userId: number | string | undefined): Contact[] => {
     const favoris_tab = localStorage.getItem('favoris_contact');
@@ -160,3 +184,5 @@ export const DeleteContact = (userId: number | string | undefined, contactId: nu
         console.error("Error parsing or updating contacts_db", e);
     }
 }
+
+

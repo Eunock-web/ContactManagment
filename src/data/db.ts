@@ -61,4 +61,24 @@ export const ContactByUser = (userId: number | undefined | string): Contact[] =>
         console.error("Error parsing contacts_db", e);
         return [];
     }
-}    
+}  
+
+export const ContactByUserAndContact = (userId: number | undefined | string, contactId : number | undefined | string): Contact[] => {
+    const data = localStorage.getItem('contacts_db');
+
+    if (!data || userId === undefined) {
+        return [];
+    }
+
+    // Ensure userId is a number for comparison
+    const targetUserId = typeof userId === 'string' ? parseInt(userId, 10) : userId;
+    const targetContactId = typeof contactId === 'string' ? parseInt(contactId, 10) : contactId;
+
+    try {
+        const allContacts = JSON.parse(data) as Contact[];
+        return allContacts.filter((c) => Number(c.userId) === targetUserId && Number(c.id) === targetContactId);
+    } catch (e) {
+        console.error("Error parsing contacts_db", e);
+        return [];
+    }
+}  
