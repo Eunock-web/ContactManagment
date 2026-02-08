@@ -1,4 +1,4 @@
-import { ContactByUser, getAllUser } from "./db";
+import { ContactByUser, getAllUser, type Contact } from "./db";
 import type { Favoris, UserInterface } from "../types";
 import { contacts } from "./contact";
 
@@ -75,5 +75,54 @@ export const AddToFavoris = (userId: number | string | undefined, contactId: num
         };
         favoris_contact.push(newFavoris);
         localStorage.setItem("favoris_contact", JSON.stringify(favoris_contact));
+    }
+}
+
+
+//Fonction pour la creation d'un contact
+export const CreateContact = (userId: number | string | undefined, contactData: Omit<Contact, 'id' | 'userId'>) => {
+    const contact_db = localStorage.getItem('contacts_db');
+    let contacts: Contact[] = [];
+
+    if (contact_db) {
+        try {
+            contacts = JSON.parse(contact_db);
+        } catch (e) {
+            console.error("Error parsing contacts_db", e);
+            contacts = [];
+        }
+    }
+
+    const newContact: Contact = {
+        ...contactData,
+        id: Date.now(),
+        userId: Number(userId)
+    };
+
+    contacts.push(newContact);
+    localStorage.setItem('contacts_db', JSON.stringify(contacts));
+    return newContact;
+}
+
+//Fonction pour supprimer un contact
+export const DeleteContact = (userId: number | string | undefined, contactId: number | string | undefined) => {
+    const contact_db = localStorage.getItem('contacts_db');
+    if (!contact_db) return;
+
+    try {
+        let contacts: Contact[] = JSON.parse(contact_db);
+        const initialLength = contacts.length;
+
+        // Filter out the contact to delete, ensuring it belongs to the user
+        contacts = contacts.filter(c => !(String(c.id) === String(contactId) && String(c.userId) === String(userId)));
+
+        if (contacts.length === initialLength) {
+            console.warn(`Contact with id ${contactId} not found for user ${userId}`);
+            return;
+        }
+
+        localStorage.setItem('contacts_db', JSON.stringify(contacts));
+    } catch (e) {
+        console.error("Error parsing or updating contacts_db", e);
     }
 }
