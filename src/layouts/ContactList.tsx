@@ -1,8 +1,8 @@
-import { Mail, Phone, Edit, Star } from "lucide-react";
+import { Mail, Phone, Edit, Star, Trash } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
-import { ContactByUser, ContactByUserAndContact } from "../data/db";
-import { IsContactFavoris, ToggleFavoris } from "../data/function";
+import { ContactByUser } from "../data/db";
+import { DeleteContact, IsContactFavoris, ToggleFavoris } from "../data/function";
 import { useState } from "react";
 
 function ContactList() {
@@ -16,10 +16,9 @@ function ContactList() {
         setTick(prev => prev + 1); // Force re-render
     };
 
-
-    const handleUpdateContact = (contactId:number)  => {
-        const res = ContactByUserAndContact(user?.id, contactId);
-        
+    const handleDeleteContact = (contactId : number) =>{
+        DeleteContact(user?.id, contactId);
+        setTick(prev => prev + 1);
     }
     
 
@@ -38,6 +37,11 @@ function ContactList() {
                                 )}
                             </div>
                             <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md text-slate-400 hover:text-red-600 transition-colors hover:cursor-pointer"
+                                onClick={() => handleDeleteContact(contact.id)}
+                                >
+                                    <Trash size={18} />
+                                </button>
                                 <button className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md text-slate-400 hover:text-blue-600 transition-colors hover:cursor-pointer">
                                     <Link to={`/edit/${contact.id}`} > <Edit size={18} /> </Link>
                                 </button>
