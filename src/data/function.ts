@@ -1,5 +1,5 @@
-import { getAllUser } from "./db";
-import type { UserInterface } from "../types";
+import { ContactByUser, getAllUser } from "./db";
+import type { Favoris, UserInterface } from "../types";
 import { contacts } from "./contact";
 
 
@@ -42,3 +42,38 @@ export const Logout = () => {
 export const countries = [...new Set(contacts.map(c => c.country))].sort();
 
 export const Jobs = [...new Set(contacts.map(c => c.jobTitle))].sort();
+
+//Fonction pour ajouter un contact a une favoris
+export const AddToFavoris = (userId: number | string | undefined, contactId: number | string | undefined) => {
+    const contacts = ContactByUser(userId);
+    const contactToAdd = contacts.find(c => String(c.id) === String(contactId));
+
+    if (!contactToAdd) {
+        console.warn(`Contact with id ${contactId} not found for user ${userId}`);
+        return;
+    }
+
+    const favoris_tab = localStorage.getItem('favoris_contact');
+    let favoris_contact: Favoris[] = [];
+
+    if (favoris_tab) {
+        try {
+            favoris_contact = JSON.parse(favoris_tab);
+        } catch (e) {
+            console.error("Error parsing favoris_contact", e);
+            favoris_contact = [];
+        }
+    }
+
+    // Check if the contact is already in the favorites list to avoid duplicates
+    const alreadyExists = favoris_contact.some(f => f.contact.id === contactToAdd.id);
+
+    if (!alreadyExists) {
+        const newFavoris: Favoris = {
+            id: Date.now(), // Generate a unique ID for the favorite record
+            contact: contactToAdd
+        };
+        favoris_contact.push(newFavoris);
+        localStorage.setItem("favoris_contact", JSON.stringify(favoris_contact));
+    }
+}

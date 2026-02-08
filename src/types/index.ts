@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { Contact } from "../data/db";
 
 export interface ButtonInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children : ReactNode,
@@ -35,4 +36,9 @@ export interface AuthContextType{
         errors : string | null;
         login : (email:string, password:string)=>void;
         logout : () => void;
+}
+
+export interface Favoris{
+    id : number,
+    contact : Contact
 }

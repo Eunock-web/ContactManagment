@@ -61,4 +61,4 @@ export const ContactByUser = (userId: number | undefined | string): Contact[] =>
         console.error("Error parsing contacts_db", e);
         return [];
     }
-} 
+}    
