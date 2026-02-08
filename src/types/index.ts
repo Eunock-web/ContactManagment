@@ -31,7 +31,7 @@ export interface LoginInterface{
 export interface AuthContextType{
         user : LoginInterface | null; 
         email : string | null;
+        errors : string | null;
         login : (email:string, password:string)=>void;
-        // saveUSer : (user: LoginInterface) => void;
         logout : () => void;
 }

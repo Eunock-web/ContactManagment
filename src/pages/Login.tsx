@@ -2,10 +2,12 @@ import { Lock, Mail } from "lucide-react";
 import Button from "../components/Button";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { type LoginInterface } from "../types";
-
+import { useAuthContext } from "../context/AuthContext";
 
 function Login() {
-    const [login, setLogin] = useState<LoginInterface>({
+    const {login, errors} = useAuthContext();
+
+    const [loginData, setLoginData] = useState<LoginInterface>({
         email: "",
         password: ""
     });
@@ -13,7 +15,7 @@ function Login() {
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
 
-        setLogin((prevData) => ({
+        setLoginData((prevData) => ({
             ...prevData,
             [name]: value
         }));
@@ -22,9 +24,9 @@ function Login() {
     const handleSubmit = (e:FormEvent)=>{
         e.preventDefault();
 
-        const {email, password} = login;
+        const {email, password} = loginData;
 
-        
+        login(email, password);
     }
 
     return <>
@@ -37,6 +39,8 @@ function Login() {
                 <h1 className="font-bold text-3xl text-white flex items-center "> ContactManagment </h1>
             </div>
 
+            {errors && <span className="text-red-500"> {errors} </span>}
+            
 
             <div className="flex flex-col gap-13 bg-slate-700 px-7 py-10 border border-slate-700 rounded-xl ">
                 <div className="flex flex-col text-center gap-2 ">
