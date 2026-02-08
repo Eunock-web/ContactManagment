@@ -43,38 +43,72 @@ export const countries = [...new Set(contacts.map(c => c.country))].sort();
 
 export const Jobs = [...new Set(contacts.map(c => c.jobTitle))].sort();
 
-//Fonction pour ajouter un contact a une favoris
-export const AddToFavoris = (userId: number | string | undefined, contactId: number | string | undefined) => {
-    const contacts = ContactByUser(userId);
-    const contactToAdd = contacts.find(c => String(c.id) === String(contactId));
-
-    if (!contactToAdd) {
-        console.warn(`Contact with id ${contactId} not found for user ${userId}`);
-        return;
-    }
-
+// Check if a contact is in favorites
+export const IsContactFavoris = (userId: number | string | undefined, contactId: number | string | undefined): boolean => {
     const favoris_tab = localStorage.getItem('favoris_contact');
-    let favoris_contact: Favoris[] = [];
+    if (!favoris_tab) return false;
+
+    try {
+        const favoris: Favoris[] = JSON.parse(favoris_tab);
+        return favoris.some(f => String(f.contact.id) === String(contactId) && String(f.contact.userId) === String(userId));
+    } catch (e) {
+        console.error("Error parsing favoris_contact", e);
+        return false;
+    }
+}
+
+// Toggle a contact in favorites
+export const ToggleFavoris = (userId: number | string | undefined, contactId: number | string | undefined) => {
+    const favoris_tab = localStorage.getItem('favoris_contact');
+    let favoris: Favoris[] = [];
 
     if (favoris_tab) {
         try {
-            favoris_contact = JSON.parse(favoris_tab);
+            favoris = JSON.parse(favoris_tab);
         } catch (e) {
             console.error("Error parsing favoris_contact", e);
-            favoris_contact = [];
+            favoris = [];
         }
     }
 
-    // Check if the contact is already in the favorites list to avoid duplicates
-    const alreadyExists = favoris_contact.some(f => f.contact.id === contactToAdd.id);
+    const isFavoris = favoris.some(f => String(f.contact.id) === String(contactId) && String(f.contact.userId) === String(userId));
 
-    if (!alreadyExists) {
+    if (isFavoris) {
+        // Remove from favorites
+        favoris = favoris.filter(f => !(String(f.contact.id) === String(contactId) && String(f.contact.userId) === String(userId)));
+    } else {
+        // Add to favorites
+        const contacts = ContactByUser(userId);
+        const contactToAdd = contacts.find(c => String(c.id) === String(contactId));
+
+        if (!contactToAdd) {
+            console.warn(`Contact with id ${contactId} not found for user ${userId}`);
+            return;
+        }
+
         const newFavoris: Favoris = {
-            id: Date.now(), // Generate a unique ID for the favorite record
+            id: Date.now(),
             contact: contactToAdd
         };
-        favoris_contact.push(newFavoris);
-        localStorage.setItem("favoris_contact", JSON.stringify(favoris_contact));
+        favoris.push(newFavoris);
+    }
+
+    localStorage.setItem("favoris_contact", JSON.stringify(favoris));
+}
+
+// Get all favorite contacts for a user
+export const GetFavorisByUser = (userId: number | string | undefined): Contact[] => {
+    const favoris_tab = localStorage.getItem('favoris_contact');
+    if (!favoris_tab) return [];
+
+    try {
+        const favoris: Favoris[] = JSON.parse(favoris_tab);
+        return favoris
+            .filter(f => String(f.contact.userId) === String(userId))
+            .map(f => f.contact);
+    } catch (e) {
+        console.error("Error parsing favoris_contact", e);
+        return [];
     }
 }
 
