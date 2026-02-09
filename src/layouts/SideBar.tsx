@@ -26,13 +26,14 @@ function SideBar() {
             <nav className="flex-1 px-4 space-y-1 overflow-y-auto">
                 <div className="pb-4 pt-2">
                     <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Navigation</p>
-                    <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600/10 text-blue-600 font-semibold group  ">
+                    <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold group  ">
                         <Users size={20} />
                         <Link to={"/"}>
                             <span className="text-sm">All Contacts</span>
                         </Link>
                     </a>
-                    <Link to="/favorites" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group">
+                    <Link to="/favorites" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group"
+                    >
                         <Star size={20} />
                         <span className="text-sm font-medium">Favorites</span>
                     </Link>
