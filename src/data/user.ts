@@ -17,6 +17,6 @@ export const users = [
         id : 3,
         name : "Takemichi",
         email : "ken@gmail.com",
-        password : "Lightya@mi2 "
+        password : "Lightya@mi2"
     }
 ]
